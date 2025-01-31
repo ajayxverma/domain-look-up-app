@@ -16,7 +16,10 @@ const corsOptions = {
   credentials: true,
 };
 
-const port: number = parseInt(process.env.APP_PORT || '8000', 10);
+app.get('/', (_req: Request, res: Response) => {
+  return res.send('Express Typescript on Vercel');
+});
+const port: number = parseInt(process.env.APP_PORT || '8080', 10);
 
 app.use(cors(corsOptions));
 // Routes
