@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { fetchWhoisData } from '../../utils/externalApiCalls';
 import { toast } from 'react-toastify';
@@ -9,10 +8,8 @@ type FormValues = {
 
 const LookupForm = ({ onResult }: { onResult: (data: any) => void }) => {
   const { register, handleSubmit, reset } = useForm<FormValues>();
-  const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data: FormValues) => {
-    setLoading(true);
     try {
       const result = await fetchWhoisData(data.query);
       console.log(data);
@@ -20,7 +17,6 @@ const LookupForm = ({ onResult }: { onResult: (data: any) => void }) => {
     } catch (error) {
       toast.error('Error fetching data');
     }
-    setLoading(false);
     reset();
   };
 
