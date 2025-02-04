@@ -18,3 +18,18 @@ export const getDomainDetails = async (domainName: string): Promise<any> => {
     throw error;
   }
 };
+
+
+export const getIpAddressDetails = async (ipAddress: string): Promise<any> => {
+  try {
+    const options = {
+      method: 'GET',
+      url: process.env.IP_ADDRESS_API_URL + `/${ipAddress}`,
+    };
+    console.log(options);
+    const response = await axios.request(options);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

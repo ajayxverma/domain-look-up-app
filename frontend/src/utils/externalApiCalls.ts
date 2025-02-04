@@ -1,13 +1,20 @@
 import axios from 'axios';
+import { API_URI, SearchType } from './constants';
 
-const API_URL = import.meta.env.VITE_API_URL;
+const host = import.meta.env.VITE_API_URL;
 
-export const fetchWhoisData = async (query: string) => {
+export const fetcDomainOrIpDetails = async (query: string, searchType: SearchType) => {
   try {
-    const encodedQuery = encodeURIComponent(query);
-    console.log(encodedQuery);
-    const response = await axios.get(API_URL, { params: { domain: encodedQuery } });
-    return response.data;
+    if (searchType === SearchType.Domain) {
+      const apiUrl = host + API_URI.DOMAIN_API_URL;
+      const encodedQuery = encodeURIComponent(query);
+      const response = await axios.get(apiUrl, { params: { domain: encodedQuery } });
+      return response.data;
+    } else if (searchType === SearchType.IP) {
+      const apiUrl = host + API_URI.IP_API_URL;
+      const response = await axios.get(apiUrl + `/${query}`);
+      return response.data;
+    }
   } catch (error) {
     throw new Error('Failed to fetch WHOIS data.');
   }
