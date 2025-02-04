@@ -1,4 +1,3 @@
-import React from 'react';
 import { DomainResponseType } from '../../types/DomainResponseType';
 import { SearchType } from '../../utils/constants';
 import { IPApiResponse } from '../../types/IPAddressDataType';

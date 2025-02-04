@@ -1,13 +1,5 @@
-import { logger } from '../utils/logger.utils.js';
+import { logger } from '../utils/logger-config.js';
 import { getDomainDetails, getIpAddressDetails } from '../service/lookup.service.js';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import fs from 'fs';
-// Get the directory name in ES module scope
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const responseJsonPath = path.resolve(__dirname, '../response.json');
-const responseJsonData = JSON.parse(fs.readFileSync(responseJsonPath, 'utf-8'));
 export const getDomainDetail = async (req, res) => {
     try {
         const domainName = req.query.domain;

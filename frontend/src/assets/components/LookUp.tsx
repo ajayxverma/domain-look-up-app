@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { fetcDomainOrIpDetails } from '../../utils/externalApiCalls';
 import { SearchType } from '../../utils/constants';
+import { useState } from 'react';
 
 const LookUp = ({ onResult }: { onResult: (data: any, searchType: SearchType) => void }) => {
   const { register, handleSubmit, reset } = useForm();
