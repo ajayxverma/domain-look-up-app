@@ -22,7 +22,7 @@ const corsOptions = {
 // Testing route
 >>>>>>> Stashed changes
 app.get('/', (_req: Request, res: Response) => {
-  return res.send('Express Typescript on Vercel');
+  return res.send('Service is running on Vercel');
 });
 const port: number = parseInt(process.env.APP_PORT || '8080', 10);
 
