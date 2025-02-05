@@ -9,8 +9,9 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Testing route
 app.get('/', (_req: Request, res: Response) => {
-  return res.send('Express Typescript on Vercel');
+  return res.send('Service is running on Vercel');
 });
 const port: number = parseInt(process.env.APP_PORT || '8080', 10);
 
