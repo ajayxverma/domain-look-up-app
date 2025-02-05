@@ -1,13 +1,20 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import { corsOptions } from './utils/cors-config.js';
 import lookUp from './routes/lookup.routes.js';
 
 dotenv.config();
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+//cors options
+export const corsOptions = {
+  origin: process.env.FE_URL || '*',
+  methods: 'GET,POST,PUT,DELETE,OPTIONS',
+  allowedHeaders: 'Content-Type,Authorization',
+  credentials: true,
+};
 
 // Testing route
 app.get('/', (_req: Request, res: Response) => {
