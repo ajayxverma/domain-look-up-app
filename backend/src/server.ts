@@ -8,8 +8,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-<<<<<<< Updated upstream
-=======
 //cors options
 const corsOptions = {
   origin: process.env.FE_URL || '*',
@@ -19,7 +17,6 @@ const corsOptions = {
 };
 
 // Testing route
->>>>>>> Stashed changes
 app.get('/', (_req: Request, res: Response) => {
   return res.send('Service is running on Vercel');
 });

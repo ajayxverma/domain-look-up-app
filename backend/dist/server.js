@@ -6,8 +6,6 @@ dotenv.config();
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-<<<<<<< Updated upstream
-=======
 //cors options
 const corsOptions = {
     origin: process.env.FE_URL || '*',
@@ -16,7 +14,6 @@ const corsOptions = {
     credentials: true,
 };
 // Testing route
->>>>>>> Stashed changes
 app.get('/', (_req, res) => {
     return res.send('Service is running on Vercel');
 });
