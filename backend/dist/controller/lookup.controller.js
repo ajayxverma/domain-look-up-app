@@ -1,4 +1,4 @@
-import { logger } from '../utils/logger-config.js';
+import { logger } from '../utils/logger.js';
 import { getDomainDetails, getIpAddressDetails } from '../service/lookup.service.js';
 export const getDomainDetail = async (req, res) => {
     try {

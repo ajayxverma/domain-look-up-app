@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import { corsOptions } from './utils/cors-config.js';
 import lookUp from './routes/lookup.routes.js';
 dotenv.config();
 const app = express();
@@ -19,7 +18,7 @@ const corsOptions = {
 // Testing route
 >>>>>>> Stashed changes
 app.get('/', (_req, res) => {
-    return res.send('Express Typescript on Vercel');
+    return res.send('Service is running on Vercel');
 });
 const port = parseInt(process.env.APP_PORT || '8080', 10);
 app.use(cors(corsOptions));
